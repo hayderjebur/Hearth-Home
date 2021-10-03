@@ -2,7 +2,7 @@ import React, { useReducer } from 'react';
 import axios from 'axios';
 import HomeContext from './homeContext';
 import homeReducer from './homeReducer';
-import { GET_HOMES, FILTER_HOMES, CLEAR_FILTER, HOME_ERROR } from './types';
+import { GET_HOMES, CLEAR_FILTER, HOME_ERROR } from './types';
 
 const HomeState = (props) => {
   const initialState = {
@@ -27,15 +27,12 @@ const HomeState = (props) => {
         payload: res.data,
       });
     } catch (err) {
+      console.log(err);
       dispatch({
         type: HOME_ERROR,
-        payload: err.response.msg,
+        payload: err.response.data.msg,
       });
     }
-  };
-
-  const filterHomes = (homeAddress) => {
-    dispatch({ type: FILTER_HOMES, payload: homeAddress });
   };
 
   //Clear Filter
@@ -48,9 +45,8 @@ const HomeState = (props) => {
       value={{
         homes: state.homes,
         pages: state.pages,
+        error: state.error,
         filtered: state.filtered,
-
-        filterHomes,
         getHomes,
         clearFilter,
       }}

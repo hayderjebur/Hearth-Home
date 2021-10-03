@@ -23,6 +23,8 @@ export default (state, action) => {
       return {
         ...state,
         filtered: null,
+        homes: [],
+        error: '',
       };
     case HOME_ERROR:
       return {

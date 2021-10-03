@@ -3,9 +3,7 @@ import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-
 import { useStyles } from './styles';
-
 import { Box } from '@mui/system';
 import { CssBaseline } from '@mui/material';
 

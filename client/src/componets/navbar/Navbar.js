@@ -133,7 +133,7 @@ export default function Navbar() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-
+    clearFilter();
     getHomes(text);
   };
 

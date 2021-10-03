@@ -4,11 +4,12 @@ import HomeItem from '../homeItem/HomeItem';
 import HomeContext from '../../context/home/homeContext';
 import Loader from '../Loader';
 import Paginate from '../Paginate';
+import { Typography } from '@material-ui/core';
 
 const HomeList = ({ match }) => {
   const pageNumber = match.params.pageNumber || 1;
   const homeContext = useContext(HomeContext);
-  const { getHomes, homes, filtered, page, pages, homeAddress } = homeContext;
+  const { getHomes, homes, filtered, pages, homeAddress, error } = homeContext;
 
   useEffect(() => {
     getHomes(homeAddress, pageNumber);
@@ -40,7 +41,9 @@ const HomeList = ({ match }) => {
           <Paginate pages={pages} />
         </div>
       ) : (
-        <Loader />
+        <div style={{ textAlign: 'center' }}>
+          {error ? <h3>{error}</h3> : <Loader />}
+        </div>
       )}
     </div>
   );
