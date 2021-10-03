@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+/* Over write pagination class */
+.css-1oj2twp-MuiPagination-root {
+  margin: auto;
+}
