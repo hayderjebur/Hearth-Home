@@ -11,18 +11,16 @@ const getHomes = async (req, res) => {
   const count = await Home.countDocuments();
 
   const query = {};
+
   if (homeAddress) {
     query.$text = { $search: homeAddress };
   }
-
-  // const homes = await Home.find(query)
-  // .limit(pageSize)
-  // .skip(pageSize * (page - 1));
 
   try {
     const homes = await Home.find(query)
       .limit(pageSize)
       .skip(pageSize * (page - 1));
+
     if (homes.length === 0) {
       res.status(404).json({
         status: 'Not Found',
@@ -36,23 +34,11 @@ const getHomes = async (req, res) => {
         pages: Math.ceil(count / pageSize),
       });
     }
-  } catch (err) {
-    // error occured
+  } catch (error) {
+    res.status(404).json({
+      error,
+    });
   }
-
-  // if (homes.length === 0) {
-  //   res.status(404).json({
-  //     status: 'Not Found',
-  //     msg: 'Sorry no houses matching your request',
-  //   });
-  // }
-
-  // res.status(200).json({
-  //   status: 'success',
-  //   results: homes.length,
-  //   data: homes,
-  //   pages: Math.ceil(count / pageSize),
-  // });
 };
 
 export { getHomes };

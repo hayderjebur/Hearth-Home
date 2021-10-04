@@ -1,4 +1,4 @@
-import { GET_HOMES, FILTER_HOMES, CLEAR_FILTER, HOME_ERROR } from './types';
+import { GET_HOMES, CLEAR_FILTER, HOME_ERROR } from './types';
 
 export default (state, action) => {
   switch (action.type) {
@@ -7,16 +7,6 @@ export default (state, action) => {
         ...state,
         homes: action.payload.data,
         pages: action.payload.pages,
-      };
-
-    case FILTER_HOMES:
-      return {
-        ...state,
-        filtered: state.homes.filter((home) => {
-          const regex = new RegExp(`${action.payload}`, 'gi');
-          return home.address.match(regex);
-          // || home.email.match(regex);
-        }),
       };
 
     case CLEAR_FILTER:

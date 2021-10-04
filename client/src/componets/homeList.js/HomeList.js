@@ -4,7 +4,6 @@ import HomeItem from '../homeItem/HomeItem';
 import HomeContext from '../../context/home/homeContext';
 import Loader from '../Loader';
 import Paginate from '../Paginate';
-import { Typography } from '@material-ui/core';
 
 const HomeList = ({ match }) => {
   const pageNumber = match.params.pageNumber || 1;
