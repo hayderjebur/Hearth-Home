@@ -23,3 +23,5 @@ TODO:
 npm run data:import
 3- To run both the client side and the server run:
 -npm run dev
+<img width="1440" alt="Screen Shot 2021-10-05 at 10 01 29 AM" src="https://user-images.githubusercontent.com/49797771/136038906-fd6cc346-598a-4275-ab29-a1a8a1db8137.png">
+<img width="1440" alt="Screen Shot 2021-10-05 at 10 01 38 AM" src="https://user-images.githubusercontent.com/49797771/136038931-8a1640d7-0ddc-40bf-a23d-481975f72678.png">
