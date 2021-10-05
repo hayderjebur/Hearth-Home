@@ -8,7 +8,7 @@ import Paginate from '../Paginate';
 const HomeList = ({ match }) => {
   const pageNumber = match.params.pageNumber || 1;
   const homeContext = useContext(HomeContext);
-  const { getHomes, homes, filtered, pages, homeAddress, error } = homeContext;
+  const { getHomes, homes, pages, homeAddress, error } = homeContext;
 
   useEffect(() => {
     getHomes(homeAddress, pageNumber);
@@ -18,25 +18,13 @@ const HomeList = ({ match }) => {
     <div>
       {homes.length !== 0 ? (
         <div>
-          {filtered !== null ? (
-            <Grid container spacing={1}>
-              {filtered.map((home) => (
-                <Grid item lg={4} md={6} sm={6} key={home._id}>
-                  <HomeItem home={home} />
-                </Grid>
-              ))}
-            </Grid>
-          ) : (
-            <Grid container spacing={1}>
-              {homes &&
-                homes.map((home) => (
-                  <Grid item lg={4} md={6} sm={6} key={home._id}>
-                    <HomeItem home={home} />
-                  </Grid>
-                ))}
-            </Grid>
-          )}
-
+          <Grid container spacing={1}>
+            {homes.map((home) => (
+              <Grid item lg={4} md={6} sm={6} key={home._id}>
+                <HomeItem home={home} />
+              </Grid>
+            ))}
+          </Grid>
           <Paginate pages={pages} />
         </div>
       ) : (

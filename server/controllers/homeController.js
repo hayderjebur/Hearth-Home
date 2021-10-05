@@ -5,7 +5,7 @@ import Home from '../models/homeModel.js';
 
 const getHomes = async (req, res) => {
   const pageSize = 20;
-  const page = Number(req.query.pageNumber) || 1;
+  const pageNumber = Number(req.query.pageNumber) || 1;
   const homeAddress = req.query.homeAddress || '';
 
   const count = await Home.countDocuments();
@@ -19,7 +19,7 @@ const getHomes = async (req, res) => {
   try {
     const homes = await Home.find(query)
       .limit(pageSize)
-      .skip(pageSize * (page - 1));
+      .skip(pageSize * (pageNumber - 1));
 
     if (homes.length === 0) {
       res.status(404).json({

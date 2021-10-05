@@ -9,7 +9,7 @@ const HomeState = (props) => {
     homes: [],
     pages: 0,
     current: null,
-    filtered: null,
+
     error: null,
   };
 
@@ -46,7 +46,7 @@ const HomeState = (props) => {
         homes: state.homes,
         pages: state.pages,
         error: state.error,
-        filtered: state.filtered,
+
         getHomes,
         clearFilter,
       }}

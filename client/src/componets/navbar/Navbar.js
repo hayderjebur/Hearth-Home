@@ -24,7 +24,7 @@ import { Link } from 'react-router-dom';
 export default function Navbar() {
   const classes = useStyles();
   const homeContext = useContext(HomeContext);
-  const { filtered, clearFilter, getHomes } = homeContext;
+  const { clearFilter, getHomes } = homeContext;
 
   const [text, setText] = useState('');
 
@@ -124,12 +124,6 @@ export default function Navbar() {
       </MenuItem>
     </Menu>
   );
-
-  React.useEffect(() => {
-    if (text === '' && filtered !== null) {
-      clearFilter();
-    }
-  });
 
   const onSubmit = (e) => {
     e.preventDefault();
